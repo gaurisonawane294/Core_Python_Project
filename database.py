@@ -39,7 +39,7 @@ cur.execute("""
         mobile VARCHAR(15)
     )
 """)
-print("Students Table Created!")
+
 cur.execute("""
     CREATE TABLE IF NOT EXISTS admins (
         admin_id INT PRIMARY KEY AUTO_INCREMENT,

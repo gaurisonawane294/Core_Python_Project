@@ -113,21 +113,46 @@ def add_course():
 
 
 # VIEW COURSES
+# def view_courses():
+
+#     conn, cur=database_con()
+
+#     cur.execute("SELECT * FROM courses")
+
+#     data = cur.fetchall()
+
+#     print("\n***************** AVAILABLE COURSES *****************")
+
+#     for row in data:
+#         print(row)
+
+#     cur.close()
+#     conn.close()
+
 def view_courses():
 
-    conn, cur=database_con()
+    con, cur = database_con()
 
     cur.execute("SELECT * FROM courses")
 
     data = cur.fetchall()
 
-    print("\n***************** AVAILABLE COURSES *****************")
+    print("\n************* AVAILABLE COURSES **************")
 
-    for row in data:
-        print(row)
+    if data:
+
+        for row in data:
+            print("--------------------------------")
+            print("Course ID:", row[0])
+            print("Course Name:", row[1])
+            print("Course Fee:", row[2])
+            print("Duration:", row[3])
+
+    else:
+        print("No Courses Available!")
 
     cur.close()
-    conn.close()
+    con.close()
 
 
 # UPDATE COURSE
@@ -185,10 +210,45 @@ def delete_course():
 
 
 # VIEW STUDENTS
+# def view_students():
+
+#     conn = database_con()
+#     cur = conn.cursor()
+
+#     cur.execute("SELECT student_id, student_name, email, mobile FROM students")
+
+#     data = cur.fetchall()
+
+#     print("\n***************** STUDENT DETAILS *****************")
+#     if  data:
+#        for row in data:
+#           print("--------------------------------")
+#                 print("Course ID:", row[0])
+#                     print("Course Name:", row[1])
+#                     print("Course Fee:", row[2])
+#                     print("Duration:", row[3])
+        
+
+#     cur.close()
+#     conn.close()
+
+
+
+# f data:
+
+#         for row in data:
+#             print("--------------------------------")
+#             print("Course ID:", row[0])
+#             print("Course Name:", row[1])
+#             print("Course Fee:", row[2])
+#             print("Duration:", row[3])
+
+#     else:
+#         print("No Courses Available!")
+
 def view_students():
 
-    conn = database_con()
-    cur = conn.cursor()
+    conn, cur = database_con()
 
     cur.execute("SELECT student_id, student_name, email, mobile FROM students")
 
@@ -196,13 +256,20 @@ def view_students():
 
     print("\n***************** STUDENT DETAILS *****************")
 
-    for row in data:
-        print(row)
+    if data:
+
+        for row in data:
+            print("--------------------------------")
+            print("Student ID:", row[0])
+            print("Student Name:", row[1])
+            print("Email:", row[2])
+            print("Mobile:", row[3])
+
+    else:
+        print("No Students Registered!")
 
     cur.close()
     conn.close()
-    conn.close()
-
 
 # VIEW ENROLLMENTS
 def view_enrollments():
